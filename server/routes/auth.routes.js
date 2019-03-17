@@ -1,9 +1,10 @@
-const { authController } = require('../controllers');
+const { petController } = require('../controllers');
 const router = require('express').Router();
 
 module.exports = router
-  .post('/login', authController.login)
-  .post('/register', authController.register)
-  .delete('/logout', authController.logout)
-  .get('/getCUser', authController.getCurrentUser)
-  .get('/:id', authController.getUser);
+  .get('/', petController.index)
+  .get('/:id', petController.show)
+  .post('/new', petController.create)
+  .put('/:id/edit', petController.update)
+  .patch('/likes/:id', petController.updateLikes)
+  .delete('/:id', petController.destroy);

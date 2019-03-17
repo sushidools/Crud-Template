@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const apiRouter = require('express').Router();
 
-const authRoutes = require('./auth.routes');
+const petRoutes = require('./pet.routes');
 
 const catchAll = require('./catch-all.routes');
 
-router.use('/auth', authRoutes);
+router.use('/pets', petRoutes);
 
 module.exports = apiRouter.use('/api', router).use(catchAll);

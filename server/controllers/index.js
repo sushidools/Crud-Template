@@ -1,4 +1,4 @@
-const authController = require('./auth.controller');
+const petController = require('./pet.controller');
 module.exports = {
-  authController
+  petController
 };
