@@ -1,0 +1,81 @@
+<div id="editPetform" style="width: 90%; margin-right: 5%; margin-left: 5%;">
+    <h4>Edit this pet</h4>
+    <form (submit)="onSubmit($event, editPet.value)" #editPet="ngForm" class="form-group" autocomplete="off" >
+      <fieldset>
+        <div>
+            <div *ngIf="petErrors.length">
+              <ul class="alert alert-danger">
+                <li *ngFor="let error of petErrors">{{ error }}</li>
+              </ul>
+            </div>
+          <div class="form-group">
+            <label for="petName">Pet name: </label>
+            <input
+            class="form-control"
+            type="text"
+            name="petName"
+            #petName="ngModel"
+            [(ngModel)]="PetEdit.petName"
+            minlength="3"
+            >
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="petType">Pet type: </label>
+            <input
+            class="form-control"
+            type="text"
+            name="petType"
+            #petType="ngModel"
+            [(ngModel)]="PetEdit.petType"
+            minlength="3">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="description">Description: </label>
+            <input
+            class="form-control"
+            type="text"
+            name="description"
+            #description="ngModel"
+            [(ngModel)]="PetEdit.description"
+            minlength="3">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="skills">Skills: </label>
+              <label for="skills">Skill 1: </label>
+              <input
+              class="form-control"
+              type="text"
+              name="skills"
+              #description="ngModel"
+              [(ngModel)]="PetEdit.skills"
+              >
+              <label for="skills">Skill 2: </label>
+              <input
+              class="form-control"
+              type="text"
+              name="skills"
+              #description="ngModel"
+              [(ngModel)]="PetEdit.skills"
+              >
+              <label for="skills">Skill 3: </label>
+              <input
+              class="form-control"
+              type="text"
+              name="skills"
+              #description="ngModel"
+              [(ngModel)]="PetEdit.skills"
+              >
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary">Edit pet</button>
+          </div>
+          <button id="goback" class="btn btn-primary" (click)="GoBack()">
+            Cancel
+          </button>
+        </div>
+      </fieldset>
+    </form>
+  </div>

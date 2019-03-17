@@ -5,6 +5,6 @@ const petRoutes = require('./pet.routes');
 
 const catchAll = require('./catch-all.routes');
 
-router.use('/pets', petRoutes);
+router.use('/pet', petRoutes);
 
 module.exports = apiRouter.use('/api', router).use(catchAll);
