@@ -7,20 +7,20 @@ import { RouterModule } from '@angular/router';
 
 import { APP_ROUTES } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { NewComponent } from './new/new.component';
 import { EditComponent } from './edit/edit.component';
-import { DetailsComponent } from './details/details.component';
 import { PageNotfoundComponent } from './page-notfound/page-notfound.component';
+import { DetailsComponent } from './details/details.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     NewComponent,
     EditComponent,
+    PageNotfoundComponent,
     DetailsComponent,
-    PageNotfoundComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,

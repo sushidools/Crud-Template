@@ -7,17 +7,15 @@ import { NewComponent } from './new/new.component';
 import { EditComponent } from './edit/edit.component';
 import { DetailsComponent } from './details/details.component';
 
-
 export const APP_ROUTES: Routes = [
   {
-    path: 'pets', component: AppComponent,
-    children: [
-      { path: '', component: HomeComponent },
-      { path: '/new', component: NewComponent },
-      { path: '/:id/edit', component: EditComponent },
-      { path: '/:id', component: DetailsComponent },
+    path: '', component: AppComponent, children: [
+      { path: '', redirectTo: 'pets', pathMatch: 'full' },
+      { path: 'pets', component: HomeComponent },
+      { path: 'pets/new', component: NewComponent },
+      { path: 'pets/:id', component: DetailsComponent },
+      { path: 'pets/:id/edit', component: EditComponent },
       { path: '**', component: PageNotfoundComponent }
     ]
-  },
-  { path: '', redirectTo: 'pets', pathMatch: 'full'},
+  }
 ];

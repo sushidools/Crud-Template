@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { FormGroup, FormArray } from '@angular/forms';
 
-import { Pet } from './../models';
+import { Pet } from '../models';
 import { PetService } from '../services/pet.service';
 
 @Component({

@@ -1,3 +1,6 @@
+<div id="page-header">
+  <h1>Pet Shelter</h1>
+</div>
 <div id="newPetform" style="width: 90%; margin-right: 5%; margin-left: 5%;">
   <h4>Know of a pet needing a home?</h4>
   <form (submit)="onSubmit($event, addPet.value)" #addPet="ngForm" class="form-group" autocomplete="off">
@@ -42,39 +45,43 @@
           minlength="3">
         </div>
         <br>
-        <div class="form-group">
-          <label for="skills">Skills: </label>
-            <label for="skills">Skill 1: </label>
-            <input
-            class="form-control"
-            type="text"
-            name="skills"
-            #description="ngModel"
-            [(ngModel)]="pet.skills"
-            >
-            <label for="skills">Skill 2: </label>
-            <input
-            class="form-control"
-            type="text"
-            name="skills"
-            #description="ngModel"
-            [(ngModel)]="pet.skills"
-            >
-            <label for="skills">Skill 3: </label>
-            <input
-            class="form-control"
-            type="text"
-            name="skills"
-            #description="ngModel"
-            [(ngModel)]="pet.skills"
-            >
+        <div class="row">
+          <label class="col-sm-4" for="skills">Skills(optional): </label>
+          <br>
+          <div class="col-sm-8">
+              <label for="skill1">Skill 1: </label>
+              <input
+              class="form-control"
+              type="text"
+              name="skill1"
+              #skill1="ngModel"
+              [(ngModel)]="pet.skill1"
+              >
+              <label for="skill2">Skill 2: </label>
+              <input
+              class="form-control"
+              type="text"
+              name="skill2"
+              #skill2="ngModel"
+              [(ngModel)]="pet.skill2"
+              >
+              <label for="skills">Skill 3: </label>
+              <input
+              class="form-control"
+              type="text"
+              name="skill3"
+              #skill3="ngModel"
+              [(ngModel)]="pet.skill3"
+              >
+          </div>
         </div>
-        <div class="form-group">
+        <br>
+        <div style="width: 50%; margin-left: 25%; margin-right: 35%;" class="form-group">
           <button class="btn btn-primary">Add pet</button>
+          <button style="margin-left: 50px;" id="goback" class="btn btn-primary" (click)="GoBack()">
+            Cancel
+          </button>
         </div>
-        <button id="goback" class="btn btn-primary" (click)="GoBack()">
-          Cancel
-        </button>
       </div>
     </fieldset>
   </form>
