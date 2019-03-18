@@ -25,6 +25,8 @@ export class NewComponent implements OnInit, OnDestroy {
 
   onSubmit(event: Event, pet: Pet) {
     event.preventDefault();
+    // const x = event.cancelable;
+    // console.log('Can it be canceled? ' + x);
     this.sub = this._pet.addPet(pet).subscribe(
       newPet => {
         console.log(newPet);
@@ -33,6 +35,7 @@ export class NewComponent implements OnInit, OnDestroy {
       error => {
         console.log(error);
         this.handleErrors(error.error);
+        event.stopPropagation();
       }
     );
   }
@@ -47,7 +50,5 @@ export class NewComponent implements OnInit, OnDestroy {
     this.petErrors = Array.isArray(error) ? error : [error];
   }
 
-  GoBack() {
-    this.router.navigateByUrl('/pets');
-  }
+
 }

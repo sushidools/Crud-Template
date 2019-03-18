@@ -6,8 +6,15 @@
   <h4>Details about {{ pet.petName }}</h4>
   <h5>Pet type: <p>{{ pet.petType }}</p></h5>
   <h5>Description: <p>{{ pet.description }}</p></h5>
-  <h5>Skills: <p>{{ pet.skills }}</p></h5>
+  <h5>Skills: </h5>
+  <h6> {{ pet.skill1 }}</h6>
+  <h6> {{ pet.skill2 }}</h6>
+  <h6> {{ pet.skill3 }}</h6>
   <h5>Likes: <p>{{ pet.likes }}</p></h5>
-  <button id="like" class="btn btn-primary" (click)="like(pet)">Like this pet</button>
-  <button id="deletepet" class="btn btn-primary" (click)="deletepet(pet)">Adopt this pet!</button>
+  <div style="display: inline-block;" (click)="onClick($event)">
+    <button id="deletepet" class="btn btn-primary" (click)="deletepet(pet)">Adopt this pet!</button>
+  </div>
+  <div style="display: inline-block; margin-left: 100px;" (click)="onClickL($event)">
+    <button id="like" class="btn btn-primary" (click)="like(pet)">Like this pet</button>
+  </div>
 </div>

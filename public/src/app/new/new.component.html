@@ -3,7 +3,7 @@
 </div>
 <div id="newPetform" style="width: 90%; margin-right: 5%; margin-left: 5%;">
   <h4>Know of a pet needing a home?</h4>
-  <form (submit)="onSubmit($event, addPet.value)" #addPet="ngForm" class="form-group" autocomplete="off">
+  <form (ngSubmit)="onSubmit($event, addPet.value)" #addPet="ngForm" class="form-group" autocomplete="off">
     <fieldset>
       <div>
           <div *ngIf="petErrors.length">
@@ -78,9 +78,6 @@
         <br>
         <div style="width: 50%; margin-left: 25%; margin-right: 35%;" class="form-group">
           <button class="btn btn-primary">Add pet</button>
-          <button style="margin-left: 50px;" id="goback" class="btn btn-primary" (click)="GoBack()">
-            Cancel
-          </button>
         </div>
       </div>
     </fieldset>

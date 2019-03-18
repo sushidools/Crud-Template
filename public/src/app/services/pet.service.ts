@@ -33,9 +33,9 @@ export class PetService {
     return this.http.put<Pet>(`${this.base}/${id}`, pet);
   }
 
-  likePet(id: string, like): Observable<Pet> {
+  likePet(id: string, pet: Pet): Observable<Pet> {
     console.log('The pet id ', id);
-    return this.http.patch<Pet>(`${this.base}/likes/${id}`, like);
+    return this.http.patch<Pet>(`${this.base}/likes/${id}`, pet);
   }
 
   adoptPet(id: string): Observable<Pet> {

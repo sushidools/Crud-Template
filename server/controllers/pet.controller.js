@@ -16,8 +16,13 @@ module.exports = {
   },
   create(req, res) {
     Pet.create(req.body)
-      .then(pet => res.json(pet))
-      .catch(error => res.json(error));
+      .then((pet) => { res.json(pet) })
+      .catch(error => {
+        const errors = Object.keys(error.errors).map(
+          key => error.errors[key].message
+        );
+        res.json(errors);
+      });
   },
   update(req, res) {
     Pet.findOneAndUpdate(
@@ -38,13 +43,18 @@ module.exports = {
       }
     )
       .then(pet => res.json(pet))
-      .catch(error => res.json(error));
+      .catch(error => {
+        const errors = Object.keys(error.errors).map(
+          key => error.errors[key].message
+        );
+        res.json(errors);
+      });
   },
   updateLikes(req, res) {
     Pet.findOneAndUpdate(
       { _id: req.params.id },
       {
-        $set: { '$.likes': req.body.likes }
+        $set: { likes : req.body.likes }
       },
       {
         runValidators: true,
@@ -52,7 +62,12 @@ module.exports = {
       }
     )
       .then(pet => res.json(pet))
-      .catch(error => res.json(error));
+      .catch(error => {
+        const errors = Object.keys(error.errors).map(
+          key => error.errors[key].message
+        );
+        res.json(errors);
+      });
   },
   destroy(req, res) {
     Pet.findByIdAndRemove(req.params)
