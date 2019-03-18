@@ -14,32 +14,32 @@ export class PetService {
   ) { }
 
   addPet(pet: Pet): Observable<Pet> {
-    console.log('Posting the pet ', pet);
+    // console.log('Posting the pet ', pet);
     return this.http.post<Pet>(`${this.base}/new`, pet);
   }
 
   getPet(id: string): Observable<Pet[]> {
-    console.log('Getting the pet ', id);
+    // console.log('Getting the pet ', id);
     return this.http.get<Pet[]>(`${this.base}/${id}`);
   }
 
   getPets(): Observable<Pet[]> {
-    console.log('Getting the pets ');
+    // console.log('Getting the pets ');
     return this.http.get<Pet[]>(`${this.base}`);
   }
 
   editPet(id: string, pet: Pet): Observable<Pet> {
-    console.log('The pet id ', id);
+    // console.log('The pet id ', id);
     return this.http.put<Pet>(`${this.base}/${id}`, pet);
   }
 
   likePet(id: string, pet: Pet): Observable<Pet> {
-    console.log('The pet id ', id);
+    // console.log('The pet id ', id);
     return this.http.patch<Pet>(`${this.base}/likes/${id}`, pet);
   }
 
   adoptPet(id: string): Observable<Pet> {
-    console.log('The pet id to remove', id);
+    // console.log('The pet id to remove', id);
     return this.http.delete<Pet>(`${this.base}/${id}`);
   }
 

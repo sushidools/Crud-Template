@@ -15,6 +15,8 @@ export class DetailsComponent implements OnInit {
   sub: Subscription;
   petId: any;
   likes: any;
+  isDisabled: boolean = false;
+
   constructor(
     private _pet: PetService,
     private router: Router,
@@ -34,7 +36,7 @@ export class DetailsComponent implements OnInit {
 
   refresh() {
     this.router.navigateByUrl('/pets/' + this.petId);
-    this.ngOnInit();
+    this.isDisabled = true;
   }
 
   onClick(event: Event) {
@@ -47,6 +49,7 @@ export class DetailsComponent implements OnInit {
 
   deletepet(pet) {
     const petId = pet._id;
+    // console.log('The pet to be deleted ', petId);
     this._pet.adoptPet(petId).subscribe(pet => {
       this.router.navigateByUrl('');
     });
@@ -54,10 +57,11 @@ export class DetailsComponent implements OnInit {
 
   like(pet) {
     pet.likes += 1;
-    console.log('Likes now ', pet.likes);
+    // console.log('Likes now ', pet.likes);
     const petId = pet._id;
     this._pet.likePet(petId, pet).subscribe(pet => {
       this.refresh();
+      this.isDisabled = true;
     });
   }
 }

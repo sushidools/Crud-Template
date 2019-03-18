@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this._pet.getPets().subscribe(data => {
-      console.log('Got our data ', data);
+      // console.log('Got our data ', data);
       this.pets = data['pets'];
     });
   }

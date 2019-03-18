@@ -5,6 +5,6 @@ module.exports = router
   .get('/', petController.index)
   .get('/:id', petController.show)
   .post('/new', petController.create)
-  .put('/:id/edit', petController.update)
+  .put('/:id', petController.update)
   .patch('/likes/:id', petController.updateLikes)
   .delete('/:id', petController.destroy);

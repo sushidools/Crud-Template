@@ -35,11 +35,11 @@ export class EditComponent implements OnInit, OnDestroy {
     event.preventDefault();
     this.sub = this._pet.editPet(this.petId, PetEdit).subscribe(
       edittedPet => {
-        console.log(edittedPet);
+        // console.log(edittedPet);
         this.router.navigateByUrl('');
       },
       error => {
-        console.log(error);
+        // console.log(error);
         this.handleErrors(error.error);
       }
     );
@@ -53,6 +53,7 @@ export class EditComponent implements OnInit, OnDestroy {
 
   private handleErrors(error: string | string[]) {
     this.petErrors = Array.isArray(error) ? error : [error];
+    // console.log('Here is the error ', this.petErrors);
   }
 
   GoBack() {
