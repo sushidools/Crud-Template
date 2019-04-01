@@ -4,47 +4,54 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const PetSchema = new Schema(
+const RestaurantSchema = new Schema(
   {
-    petName: {
+    name: {
       type: String,
-      required: [true, 'Pet name is required'],
-      minlength: [3, 'Pet name must be least three characters'],
-      trim: true,
+      required: [true, 'Please give a name for the restaurant'],
+      minlength: [3, 'Restaurant name must be 3 characters!'],
       validator: {
-        unique: [true, 'The pets name must be unique!'],
+        unique: [true, 'Restaurant name cannot already exist!'],
       },
-    },
-    petType: {
-      type: String,
-      required: [true, 'Pet type is required'],
-      minlength: [3, 'Pet type must be at least three characters'],
       trim: true,
     },
-    description: {
+    cuisine: {
       type: String,
-      required: [true, 'Pet description is required'],
-      minlength: [3, 'Pet description must be at least three characters'],
+      required: [true, 'Please give a cuisine type'],
+      minlength: [3, 'Cuisine must be 3 characters!'],
+      trim: true,
     },
-    skill1: {
-      type: String,
-    },
-    skill2: {
-      type: String,
-    },
-    skill3: {
-      type: String,
-    },
-    likes: {
-      type: Number,
-      default: 0,
-    },
+    reviews: [
+      {
+        _id: {
+          type: String,
+        },
+        name: {
+          type: String,
+          required: [true, 'Please give a name for review!'],
+          minlength: [3, 'Name must be at least 3 characters!'],
+          trim: true,
+        },
+        star: {
+          type: Number,
+          default: 1,
+          min: [1, 'Cannot be less than 1 star!'],
+          max: [5, 'Cannot give more than 5 stars!'],
+        },
+        content: {
+          type: String,
+          required: [true, 'Please provide a reason for your review!'],
+          minlength: [3, 'Review must be at least 3 characters!'],
+          trim: true,
+        },
+      },
+    ],
   },
   {
     timestamps: true,
   }
 );
 
-PetSchema.plugin(uniquePlugin, { message: '{VALUE} is not unique' });
+RestaurantSchema.plugin(uniquePlugin, { message: '{VALUE} is not unique' });
 
-module.exports = mongoose.model('Pet', PetSchema);
+module.exports = mongoose.model('Restaurant', RestaurantSchema);

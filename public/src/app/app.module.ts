@@ -8,10 +8,11 @@ import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NewComponent } from './new/new.component';
-import { EditComponent } from './edit/edit.component';
+import { EditComponent } from './home/edit/edit.component';
 import { PageNotfoundComponent } from './page-notfound/page-notfound.component';
 import { DetailsComponent } from './details/details.component';
 import { HomeComponent } from './home/home.component';
+import { ReviewComponent } from './review/review.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HomeComponent } from './home/home.component';
     EditComponent,
     PageNotfoundComponent,
     DetailsComponent,
-    HomeComponent
+    HomeComponent,
+    ReviewComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,6 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

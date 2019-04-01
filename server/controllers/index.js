@@ -1,4 +1,4 @@
-const petController = require('./pet.controller');
+const restaurantController = require('./pet.controller');
 module.exports = {
-  petController
+  restaurantController,
 };

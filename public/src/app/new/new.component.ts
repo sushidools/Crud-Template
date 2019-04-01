@@ -3,32 +3,32 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FormGroup, FormArray } from '@angular/forms';
 
-import { Pet } from '../models';
-import { PetService } from '../services/pet.service';
+import { Restaurant } from '../models';
+import { RestaurantService } from '../services/pet.service';
 
 @Component({
   selector: 'app-new',
   templateUrl: './new.component.html',
-  styleUrls: ['./new.component.css']
+  styleUrls: ['./new.component.css'],
 })
 export class NewComponent implements OnInit, OnDestroy {
-  pet = new Pet();
+  restaurant = new Restaurant();
   sub: Subscription;
-  petErrors: string[] = [];
+  restaurantErrors: string[] = [];
 
   constructor(
-    private readonly _pet: PetService,
+    private readonly _restaurant: RestaurantService,
     private readonly router: Router
-  ) { }
+  ) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 
-  onSubmit(event: Event, pet: Pet) {
+  onSubmit(event: Event, restaurant: Restaurant) {
     // const x = event.cancelable;
     // console.log('Can it be canceled? ' + x);
-    this.sub = this._pet.addPet(pet).subscribe(
-      newPet => {
-        // console.log(newPet);
+    this.sub = this._restaurant.addRestaurant(restaurant).subscribe(
+      newRestaurant => {
+        console.log(newRestaurant);
         this.router.navigateByUrl('');
       },
       error => {
@@ -47,8 +47,6 @@ export class NewComponent implements OnInit, OnDestroy {
   }
 
   private handleErrors(error: string | string[]) {
-    this.petErrors = Array.isArray(error) ? error : [error];
+    this.restaurantErrors = Array.isArray(error) ? error : [error];
   }
-
-
 }

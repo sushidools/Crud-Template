@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const apiRouter = require('express').Router();
 
-const petRoutes = require('./pet.routes');
+const restaurantRoutes = require('./pet.routes');
 
 const catchAll = require('./catch-all.routes');
 
-router.use('/pet', petRoutes);
+router.use('/restaurants', restaurantRoutes);
 
 module.exports = apiRouter.use('/api', router).use(catchAll);

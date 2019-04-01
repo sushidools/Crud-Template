@@ -2,45 +2,45 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 
-import { Pet } from './../models';
+import { Restaurant } from './../models';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class PetService {
-  private readonly base = '/api/pet';
-  constructor(
-    private readonly http: HttpClient
-  ) { }
+export class RestaurantService {
+  private readonly base = '/api/restaurants';
+  constructor(private readonly http: HttpClient) {}
 
-  addPet(pet: Pet): Observable<Pet> {
-    // console.log('Posting the pet ', pet);
-    return this.http.post<Pet>(`${this.base}/new`, pet);
+  addRestaurant(restaurant: Restaurant): Observable<Restaurant> {
+    // console.log('Posting the restaurant ', restaurant);
+    return this.http.post<Restaurant>(`${this.base}/new`, restaurant);
   }
 
-  getPet(id: string): Observable<Pet[]> {
-    // console.log('Getting the pet ', id);
-    return this.http.get<Pet[]>(`${this.base}/${id}`);
+  getRestaurant(id: string): Observable<Restaurant[]> {
+    // console.log('Getting the restaurant ', id);
+    return this.http.get<Restaurant[]>(`${this.base}/${id}`);
   }
 
-  getPets(): Observable<Pet[]> {
+  getRestaurants(): Observable<Restaurant[]> {
     // console.log('Getting the pets ');
-    return this.http.get<Pet[]>(`${this.base}`);
+    return this.http.get<Restaurant[]>(`${this.base}`);
   }
 
-  editPet(id: string, pet: Pet): Observable<Pet> {
-    // console.log('The pet id ', id);
-    return this.http.put<Pet>(`${this.base}/${id}`, pet);
+  editRestaurant(id: string, restaurant: Restaurant): Observable<Restaurant> {
+    // console.log('The restaurant id ', id);
+    return this.http.put<Restaurant>(`${this.base}/${id}`, restaurant);
   }
 
-  likePet(id: string, pet: Pet): Observable<Pet> {
-    // console.log('The pet id ', id);
-    return this.http.patch<Pet>(`${this.base}/likes/${id}`, pet);
+  reviewRestaurant(id: string, reviewObject): Observable<Restaurant> {
+    // console.log('The restaurant id ', id);
+    return this.http.patch<Restaurant>(
+      `${this.base}/${id}/review`,
+      reviewObject
+    );
   }
 
-  adoptPet(id: string): Observable<Pet> {
-    // console.log('The pet id to remove', id);
-    return this.http.delete<Pet>(`${this.base}/${id}`);
+  deleteRestaurant(id: string): Observable<Restaurant> {
+    // console.log('The restaurant id to remove', id);
+    return this.http.delete<Restaurant>(`${this.base}/${id}`);
   }
-
 }

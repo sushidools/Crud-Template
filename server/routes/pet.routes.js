@@ -1,10 +1,10 @@
-const { petController } = require('../controllers');
+const { restaurantController } = require('../controllers');
 const router = require('express').Router();
 
 module.exports = router
-  .get('/', petController.index)
-  .get('/:id', petController.show)
-  .post('/new', petController.create)
-  .put('/:id', petController.update)
-  .patch('/likes/:id', petController.updateLikes)
-  .delete('/:id', petController.destroy);
+  .get('/', restaurantController.index)
+  .get('/:id', restaurantController.show)
+  .post('/new', restaurantController.create)
+  .put('/:id', restaurantController.update)
+  .patch('/:id/review', restaurantController.updateReviews)
+  .delete('/:id', restaurantController.destroy);

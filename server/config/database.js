@@ -5,7 +5,7 @@ const fs = require('fs');
 const modelsPath = path.join(__dirname, '../models');
 // const modelsPath = path.resolve('server/models');
 
-mongoose.connect('mongodb://localhost/PetShelter', {
+mongoose.connect('mongodb://localhost/Restaurant_db', {
   useNewUrlParser: true,
   createIndexes: true,
 });

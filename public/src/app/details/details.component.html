@@ -1,20 +1,32 @@
-<div id="page-header">
-  <h1>Pet Shelter</h1>
+<div>
+  <h1>Let's eat!</h1>
 </div>
-<a routerLink='/'>Home</a>
-<div id="petdetails">
-  <h4>Details about {{ pet.petName }}</h4>
-  <h5>Pet type: <p>{{ pet.petType }}</p></h5>
-  <h5>Description: <p>{{ pet.description }}</p></h5>
-  <h5>Skills: </h5>
-  <h6> {{ pet.skill1 }}</h6>
-  <h6> {{ pet.skill2 }}</h6>
-  <h6> {{ pet.skill3 }}</h6>
-  <h5>Likes: <p>{{ pet.likes }}</p></h5>
-  <div style="display: inline-block;" (click)="onClick($event)">
-    <button id="deletepet" class="btn btn-primary" (click)="deletepet(pet)">Adopt this pet!</button>
-  </div>
-  <div style="display: inline-block; margin-left: 100px;" (click)="onClickL($event)">
-    <button id="like" class="btn btn-primary" [disabled]="isDisabled" (click)="like(pet)">Like this pet</button>
+<a routerLink="review" class="btn btn-success" style="margin-bottom: 15px;"
+  >New Review</a
+>
+<div id="restaurantdetails">
+  <div id="restaurantTable">
+    <table class="table table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <td>
+            Customer
+          </td>
+          <td>
+            Stars
+          </td>
+          <td>
+            Description
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let r of reviews">
+          <td>{{ r.name }}</td>
+          <td>{{ r.star }}</td>
+          <td>{{ r.content }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

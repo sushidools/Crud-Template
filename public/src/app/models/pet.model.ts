@@ -1,12 +1,13 @@
-
-export class Pet {
+export class Restaurant {
   _id: string;
-  petName: string;
-  petType: string;
-  description: string;
-  skill1: string;
-  skill2: string;
-  skill3: string;
-  likes: number;
+  name: string;
+  cuisine: string;
+  reviews: [Review];
 }
 
+export class Review {
+  _id: string;
+  name: string;
+  star: number;
+  content: string;
+}
