@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css']
+  styleUrls: ['./edit.component.css'],
 })
 export class EditComponent implements OnInit, OnDestroy {
   PetEdit = new Pet();
@@ -19,7 +19,7 @@ export class EditComponent implements OnInit, OnDestroy {
     private _pet: PetService,
     private router: Router,
     private _route: ActivatedRoute
-  ) { }
+  ) {}
 
   ngOnInit() {
     this._route.paramMap.subscribe(

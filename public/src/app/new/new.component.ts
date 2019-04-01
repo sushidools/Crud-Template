@@ -28,11 +28,11 @@ export class NewComponent implements OnInit, OnDestroy {
     // console.log('Can it be canceled? ' + x);
     this.sub = this._pet.addPet(pet).subscribe(
       newPet => {
-        console.log(newPet);
+        // console.log(newPet);
         this.router.navigateByUrl('');
       },
       error => {
-        console.log(error);
+        // console.log(error);
         this.handleErrors(error.error);
         event.stopPropagation();
         event.preventDefault();

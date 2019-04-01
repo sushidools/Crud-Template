@@ -2,85 +2,103 @@
   <h1>Pet Shelter</h1>
 </div>
 <div id="editPetform" style="width: 90%; margin-right: 5%; margin-left: 5%;">
-    <h4>Edit this pet</h4>
-    <form (submit)="onSubmit($event, editPet.value)" #editPet="ngForm" class="form-group" autocomplete="off" >
-      <fieldset>
-        <div>
-            <div *ngIf="petErrors.length">
-              <ul class="alert alert-danger">
-                <li *ngFor="let error of petErrors">{{ error }}</li>
-              </ul>
-            </div>
-          <div class="form-group">
-            <label for="petName">Pet name: </label>
-            <input
+  <h4>Edit this pet</h4>
+  <form
+    (submit)="onSubmit($event, editPet.value)"
+    #editPet="ngForm"
+    class="form-group"
+    autocomplete="off"
+  >
+    <fieldset>
+      <div>
+        <div *ngIf="petErrors.length">
+          <ul class="alert alert-danger">
+            <li *ngFor="let error of petErrors">{{ error }}</li>
+          </ul>
+        </div>
+        <div class="form-group">
+          <label for="petName">Pet name: </label>
+          <input
             class="form-control"
             type="text"
             name="petName"
             #petName="ngModel"
             [(ngModel)]="PetEdit.petName"
             minlength="3"
-            >
-          </div>
-          <br>
-          <div class="form-group">
-            <label for="petType">Pet type: </label>
-            <input
+          />
+          <small id="nameHelp" class="form-text text-muted"
+            >To edit this pet the name must also change to stay unique!</small
+          >
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="petType">Pet type: </label>
+          <input
             class="form-control"
             type="text"
             name="petType"
             #petType="ngModel"
             [(ngModel)]="PetEdit.petType"
-            minlength="3">
-          </div>
-          <br>
-          <div class="form-group">
-            <label for="description">Description: </label>
-            <input
+            minlength="3"
+          />
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="description">Description: </label>
+          <input
             class="form-control"
             type="text"
             name="description"
             #description="ngModel"
             [(ngModel)]="PetEdit.description"
-            minlength="3">
-          </div>
-          <br>
-          <div class="row">
-              <label class="col-sm-4" for="skills">Skills(optional): </label>
-              <br>
-              <div class="col-sm-8">
-                  <label for="skill1">Skill 1: </label>
-                  <input
-                  class="form-control"
-                  type="text"
-                  name="skill1"
-                  #skill1="ngModel"
-                  [(ngModel)]="PetEdit.skill1"
-                  >
-                  <label for="skill2">Skill 2: </label>
-                  <input
-                  class="form-control"
-                  type="text"
-                  name="skill2"
-                  #skill2="ngModel"
-                  [(ngModel)]="PetEdit.skill2"
-                  >
-                  <label for="skills">Skill 3: </label>
-                  <input
-                  class="form-control"
-                  type="text"
-                  name="skill3"
-                  #skill3="ngModel"
-                  [(ngModel)]="PetEdit.skill3"
-                  >
-              </div>
-            </div>
-            <br>
-            <div style="width: 50%; margin-left: 25%; margin-right: 35%;" class="form-group">
-              <button class="btn btn-primary">Edit pet</button>
-            </div>
+            minlength="3"
+          />
         </div>
-      </fieldset>
-    </form>
-    <a routerLink='/pets' style="position: relative; top: -60px; left: 80%;" class="btn btn-primary">Go Back</a>
-  </div>
+        <br />
+        <div class="row">
+          <label class="col-sm-4" for="skills">Skills(optional): </label>
+          <br />
+          <div class="col-sm-8">
+            <label for="skill1">Skill 1: </label>
+            <input
+              class="form-control"
+              type="text"
+              name="skill1"
+              #skill1="ngModel"
+              [(ngModel)]="PetEdit.skill1"
+            />
+            <label for="skill2">Skill 2: </label>
+            <input
+              class="form-control"
+              type="text"
+              name="skill2"
+              #skill2="ngModel"
+              [(ngModel)]="PetEdit.skill2"
+            />
+            <label for="skills">Skill 3: </label>
+            <input
+              class="form-control"
+              type="text"
+              name="skill3"
+              #skill3="ngModel"
+              [(ngModel)]="PetEdit.skill3"
+            />
+          </div>
+        </div>
+        <br />
+        <div
+          style="width: 50%; margin-left: 25%; margin-right: 35%;"
+          class="form-group"
+        >
+          <button class="btn btn-primary">Edit pet</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+  <a
+    routerLink="/pets"
+    style="position: relative; top: -60px; left: 80%;"
+    class="btn btn-primary"
+    >Go Back</a
+  >
+</div>

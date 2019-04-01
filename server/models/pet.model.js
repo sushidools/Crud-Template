@@ -11,7 +11,9 @@ const PetSchema = new Schema(
       required: [true, 'Pet name is required'],
       minlength: [3, 'Pet name must be least three characters'],
       trim: true,
-      unique: [true, 'The pets name must be unique!']
+      validator: {
+        unique: [true, 'The pets name must be unique!'],
+      },
     },
     petType: {
       type: String,
@@ -22,20 +24,20 @@ const PetSchema = new Schema(
     description: {
       type: String,
       required: [true, 'Pet description is required'],
-      minlength: [3, 'Pet description must be at least three characters']
+      minlength: [3, 'Pet description must be at least three characters'],
     },
     skill1: {
-      type: String
+      type: String,
     },
     skill2: {
-      type: String
+      type: String,
     },
     skill3: {
-      type: String
+      type: String,
     },
     likes: {
       type: Number,
-      default: 0
+      default: 0,
     },
   },
   {
